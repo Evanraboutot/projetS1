@@ -10,7 +10,7 @@ body {
   font-family: var(--font-sans-serif);
   font-size: var(--text-md);
   line-height: 1.6;
-  background-color: var(--gray-white);
+  background-color:#333333;
 }
 
 /* Les règles typographiques générales des titres */
@@ -86,7 +86,7 @@ uniquement accessible aux lecteurs vocaux (sr = screen reader) */
   width: 68.93px;
   height: 46.05px;
   left: 154px;
-  top: 789px;
+  top: 720px;
   z-index: 3;
 }
 
@@ -99,27 +99,67 @@ uniquement accessible aux lecteurs vocaux (sr = screen reader) */
   color: #FFF3CC;
 }
 
-
-
-.bloc-noir {
-  display: block;
-  background-color: black;
+.bloc-blanc {
+  position: relative;
+  background-color: #ffffff;
 }
 
 .textbase {
+  font-family: verdana;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 160%;
+  color: #FFF3CC;
+}
+
+.img-centre {
+position: relative;
+width: 165px;
+height: 252px;
+left: 105px;
+top: 40px;
+z-index: 6;
+background-color: #ffffff
+}
+
+.tiret{
   position: absolute;
-  width: 323px;
-  height: 86px;
-  left: 26px;
-  top: 929px;
-  
-  font-family: Verdana;
+width: 52px;
+height: 0px;
+left: 20px;
+top: 760px;
+}
+
+.shiny{
+  font-family: verdana;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
   line-height: 106.9%;
-  /* or 16px */
-  
-  
-  color: #FFF3CC;
+  color: #FFA700;
+}
+
+.marge-text{
+  margin-left: 20px;
+}
+.legend{
+  position: relative;
+  top: -20px;
+
+font-family: verdana;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 106.9%;
+/* or 16px */
+
+text-align: center;
+color: #333333;
+}
+
+.img-etendu{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

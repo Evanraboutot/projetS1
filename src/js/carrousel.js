@@ -1,4 +1,3 @@
-//carrousel//
 
 function carrousel() {
     var images6 = document.querySelectorAll('.image6');

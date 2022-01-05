@@ -39,4 +39,4 @@ Soyez attentifs à l'ordre d'import :
 @import "components/card.css";
 @import "components/carousel.css";
 @import "components/searchform.css";
-
+@import url("src/js/carrousel.js");

@@ -1,0 +1,55 @@
+/* Pour rendre les images responsives */
+img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Mise en forme des légendes pour les images */
+  figure {
+    margin: 0;
+  }
+  
+  figcaption {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+  }
+  
+  /* Pour produire l'effet duotone sur les images */
+  
+  .duotone {
+    background-color: var(--brand-saumon);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /** 
+  * Le pseudo élément ::before permet de créer un élément supplémentaire qui vient avant l'image.
+  * Le positionnement absolu permet de supperposer cet élément à l'image. 
+  * Attention, pour qu'il se place bien par rapport à l'élément "duotone", il faut ajouter à ce dernier une position relative !
+  * Les propriétés de positionnements (top, left, bottom, right, left) permettent de le placer comme il faut, ici pour couvrir toute l'image.
+  * z-index permet de gérer l'empilement des éléments qui se superposent, ici on s'assure que l'élément sera bien par-dessu l'image.
+  * La propriété mix-blen-mode permet de modifier le mode de fusion des pixels de l'élément.
+  **/
+  
+  .duotone::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background-color: var(--brand-violet);
+    z-index: 1;
+    mix-blend-mode: lighten;
+  }
+  
+  /* La propriété filter permet d'appliquer des filtres et d'obtenir des effets graphiques, ici transformer l'image en niveaux de gris.  */
+  .duotone img {
+    filter: grayscale(100%);
+    display: block;
+    mix-blend-mode: multiply;
+  
+    /* Pour forcer l'image à remplir 
+    la zone indépendamment de sa taille. */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

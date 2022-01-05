@@ -1,90 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" x-data="{ menuIsOpen: false }" :class="menuIsOpen && 'noscroll'">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="description" content="Site de la dictature de Panem">
   <title>La dictature de Panem</title>
 
   <link rel="icon" href="public/img/logo/logo.png" />
   <link rel="stylesheet" href="src/css/style.css">
+      <!-- Chargement de la librairie Alpine JS -->
+      <script defer="" src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
 </head>
-<body>
-    <!-- En-tête de la page -->
-    <header class="header">
+<body x-data="{ atTop: true }">
+  <!-- En-tête de la page -->
+  <header class="header container" 
+            @scroll.window="atTop = ( window.scrollY > 100 ? false : true )"
+            :class="{ 'header--atTop' : !atTop }">
+
+      <div class="header__start">
         <a href="/">
-          <img src="public/img/logo/logo.png" alt="Logo La dicature de Panem">
+          <img class=".logo1" src="public/img/logo/logo.png" alt="logo du site">
         </a>
-        <button>
-          <img src="public/img/Icons/hamb.png" alt="icone de menu">
+      </div>
+        <!-- Fin du formulaire de recherche -->
+        
+        <button class="header__menu-btn menu-btn" aria-label="menu" aria-expanded="false" aria-controls="mainNav"
+                @pointerdown="menuIsOpen = !menuIsOpen" 
+                :class="menuIsOpen && 'menu-btn--open'">
+          <span class="menu-btn__bar"></span>
         </button>
 
-        <!-- Menu principal -->
-        <nav>
-          <ul>
-            <li><a href="index.html"><img src="public/img/Icons/accueil.png" alt="Icon accueil">Accueil</a></li>
-            <li><a href="Un-puissant-gouvernement.html"><img src="public/img/Icons/Parleur.png" alt="Icon Element">Un puissant gouvernement</a></li>
-            <li><a href="séjour-capitole.html"><img src="public/img/Icons/film.png" alt="Icon film">Le séjour au capitole</a></li>
-            <li><a href="Les-jeux-de-la-survie.html"><img src="public/img/Icons/livre.png" alt="Icon livre">Les jeux de la survie</a></li>
-            <li><a href="autres-projets.html"><img src="public/img/Icons/autresprojets.png" alt="Icon autres projets">Autres projets</a></li>
-            <li><a href="contact.html"><img src="public/img/Icons/icônecontact.png" alt="Icon contact">Contact</a></li>
+
+      <!-- Menu principal -->
+      <nav class="header__menu menu" id="mainNav" :class="menuIsOpen && 'menu--open'">
+          <ul class="menu__list list-unstyled">
+            <li class="menu__item"><a class="menu__link" href="accueil.html">Accueil</a></li>
+            <li class="menu__item"><a class="menu__link" href="séjour-capitole.html">Le séjour au Capitole</a></li>
+            <li class="menu__item"><a class="menu__link" href="Un-puissant-gouvernement.html">Un puissant gouvernement</a></li>
+            <li class="menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+            <li class="menu__item menu__item--btn"><a class="menu__link" href="autres-projets.html">S'inscrire</a></li>
+            <li class="menu__item menu__item--btn"><a class="menu__link" href="Les-jeux-de-la-survie.html">S'inscrire</a></li>
           </ul>
         </nav>
-      </header>
+    </header>
+
        <!-- Contenu principal de la page -->
       <main>
+        <div class="intro">
+          <h1 class="hero__title">La dictature de Panem</h1>
+          <div class=".hero__img"><img src="public/img/Images/fondimageAccueil.svg" alt="capitole"></div>
+            <div class="Ficon"><img src="public/img/Images/Flèche.png" alt="Flèche"></div>
+        </div>
+            <section class="bloc-noir">
+              <h3 class="titre1">
+                Accueil </h3>
 
-        <h1>La dictature de Panem</h1>
-          <a href="#"><img src="public/img/Images/fondimageAccueil.svg" alt="Image du capitole"></a>
-     
-      <section>
-        <h3>
-          Accueil
-      </h3>
-            <p><br>
-                Ce site traite du livre et du film adapté,
-                Hunger Games. Vous allez découvrir
-                comment le Capitole gouverne le peuple
-                de Panem de façon dictatoriale.
-            </p>
-            <img src="public/img/Images/ImageHGintro.svg" alt="Image du film Hunger Games">
-      </section>    
-            <br>
-        <section>
-            <img src="public/img/Images/couverturelivreHG.svg" alt="couverture du livre hunger Games">
-         
-           <p>
-            <span>Livre original par Suzanne Collins</span>
-            <span>sites</span>
-          </p>
-          <h3>Article sur le livre</h3>
-          <img src="public/img/Images/areneavion.svg" alt="Un avion dans l'arène">
-          <p>
-            <span>Chaque année au sein de la nation de
-              Panem, des jeux sont organisés où 24
-              joueurs ont l’obligation de s’entretuer
-              afin de survivre.
-              </span>
-          </p>
-          <h3>Article sur l’élément</h3>
-          <img src="public/img/Images/capitole.svg" alt="Capitole">
-          <p>
-            <span>Panem est divisée en douze Districts tous
-              gouvernés par un président cruel,
-              considéré par le peuple impuissant
-              comme un dictateur.</span>
-          </p>
-          <h3>Article sur le film</h3>
-          <img src="public/img/Images/Capitoleeau.svg" alt="Capitole vue de l'eau">
+                  <p class="textbase">
+                      Ce site traite du livre et du film adapté,
+                      Hunger Games. Vous allez découvrir
+                      comment le Capitole gouverne le peuple
+                      de Panem de façon dictatoriale.
+                  </p>
+                  <img src="public/img/Images/ImageHGintro.svg" alt="Image du film Hunger Games">
+            </section>    
+                  <br>
+              <section>
+                  <img src="public/img/Images/couverturelivreHG.svg" alt="couverture du livre hunger Games">
+              
+                <p>
+                  <span>Livre original par Suzanne Collins</span>
+                  <span>sites</span>
+                </p>
+                <h3>Article sur le livre</h3>
+                <img src="public/img/Images/areneavion.svg" alt="Un avion dans l'arène">
+                <p>
+                  <span>Chaque année au sein de la nation de
+                    Panem, des jeux sont organisés où 24
+                    joueurs ont l’obligation de s’entretuer
+                    afin de survivre.
+                    </span>
+                </p>
+                <h3>Article sur l’élément</h3>
+                <img src="public/img/Images/capitole.svg" alt="Capitole">
+                <p>
+                  <span>Panem est divisée en douze Districts tous
+                    gouvernés par un président cruel,
+                    considéré par le peuple impuissant
+                    comme un dictateur.</span>
+                </p>
+                <h3>Article sur le film</h3>
+                <img src="public/img/Images/Capitoleeau.svg" alt="Capitole vue de l'eau">
 
-          <p>
-            <span>Le film adapté du premier tome est fidèle
-              à l’histoire du livre, il met en image, le
-              Capitole, la dictature ainsi que le soutien
-              du peuple.</span>
-          </p>
-        </section>
+                <p>
+                  <span>Le film adapté du premier tome est fidèle
+                    à l’histoire du livre, il met en image, le
+                    Capitole, la dictature ainsi que le soutien
+                    du peuple.</span>
+                </p>
+              </section>
+              </div>
       </main>
       <footer class="footer">
         <p>

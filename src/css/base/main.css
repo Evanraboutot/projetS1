@@ -1,0 +1,125 @@
+/* Transforme le modèle de boite par défaut pour inclure dans la largeur et la hauteur, les marges intérieures et les bordures. */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* Les règles typographiques générales qui s'appliquent à tout le site */
+body {
+  font-family: var(--font-sans-serif);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  background-color: var(--gray-white);
+}
+
+/* Les règles typographiques générales des titres */
+h1,
+h2 {
+  font-family: var(--font-mono);
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: var(--title-xxl);
+}
+
+h2 {
+  font-size: var(--title-xl);
+}
+
+h3 {
+  line-height: 1.4;
+}
+
+/* permet d'annuler la mise en forme des bouton qu'applique le navigateur. */
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Pour enlever l'apparence par défaut des listes */
+.list-unstyled {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Classe générique permettant de définir les marges sur les cotés */
+.container {
+  padding-left: var(--space3x);
+  padding-right: var(--space3x);
+}
+
+/* Bug IOS
+=> L'overflow doit être appliqué sur l'élément body ET html
+pour faire disparaître le scroll sur safari IOS */
+.noscroll,
+.noscroll body {
+  overflow: hidden;
+}
+
+/* Technique reprise de Bootsrap pour rendre le contenu 
+uniquement accessible aux lecteurs vocaux (sr = screen reader) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.intro>.Ficon {
+  position: absolute;
+  width: 68.93px;
+  height: 46.05px;
+  left: 154px;
+  top: 789px;
+  z-index: 3;
+}
+
+.titre1{
+  font-family: Patua One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 106.9%;
+  color: #FFF3CC;
+}
+
+
+
+.bloc-noir {
+  display: block;
+  background-color: black;
+}
+
+.textbase {
+  position: absolute;
+  width: 323px;
+  height: 86px;
+  left: 26px;
+  top: 929px;
+  
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 106.9%;
+  /* or 16px */
+  
+  
+  color: #FFF3CC;
+}

@@ -1,0 +1,91 @@
+/* L'élément fait 80% de la hauteur de l'écran.
+On utilise flex ici pour aligner le contenu textuel en bas de l'élément et faire ainsi en sorte que le texte du titre s'étende vers le haut en fonction de la densité textuelle. */
+.hero__header {
+    position: relative;
+    height: 20vh;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: var(--space5x);
+  }
+  
+  /* L'élément qui contient l'image est positionné en absolu pour permettre au titre de venir se superposer à l'image. Toutes les propriétés de position à 0 permettent d'étendre cet élément à tout l'élément parent, positionné en relatif. */
+  .hero__img {
+    position: relative;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+    z-index: 0;
+    max-width: 100%;
+    height: auto;
+    background-size: cover;
+  }
+
+  
+  .hero__title{
+    position: absolute;
+    width: 315px;
+    height: 133px;
+    left: 30px;
+    top: 139px;
+    
+    font-family: Patua One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 43px;
+    text-align: center;
+    
+    color: #333333;
+  }
+  .hero__sub-title {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .hero__sub-title {
+    font-family: var(--font-sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: var(--text-sm);
+    font-weight: bold;
+    line-height: 1.8;
+  }
+  
+  /* Le chapo occupe un minimum d'espace correspondant à 20% de la hauteur de l'écran.
+  On utilise flex pour placer les éléments enfants les uns à cotés des autres, espacés grâce à "gap" d'une valeur de 24px (var(--space3x)) */
+  .chapo {
+    min-height: 20vh;
+    display: flex;
+    gap: var(--space3x);
+    align-items: center;
+  }
+  
+  /* La propriété flex avec la valeur 1 oblige les éléments à se partager l'espace de manière équivalente. */
+  .chapo__title {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .chapo__link {
+    color: var(--gray-black);
+    text-decoration: none;
+  }
+  
+  .chapo__link img {
+    display: block;
+    margin: auto;
+  }
+  
+  .chapo__text {
+    font-size: var(--text-xl);
+    line-height: 1.5;
+  }
+
+  .logo {
+    position: absolute;
+    left: 4.45%;
+    right: 4.47%;
+    top: 2.93%;
+    bottom: 2.93%;
+  }

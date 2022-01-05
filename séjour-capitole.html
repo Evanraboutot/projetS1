@@ -1,38 +1,49 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" x-data="{ menuIsOpen: false }" :class="menuIsOpen && 'noscroll'">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta name="description" content="Site de la dictature de Panem">
   <title>La dictature de Panem</title>
 
   <link rel="icon" href="public/img/logo/logo.png" />
   <link rel="stylesheet" href="src/css/style.css">
+      <!-- Chargement de la librairie Alpine JS -->
+      <script defer="" src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
 </head>
-<body>
-    <!-- En-tête de la page -->
-    <header class="header">
+<body x-data="{ atTop: true }">
+  <!-- En-tête de la page -->
+  <header class="header container" 
+            @scroll.window="atTop = ( window.scrollY > 100 ? false : true )"
+            :class="{ 'header--atTop' : !atTop }">
+
+      <div class="header__start">
         <a href="/">
-          <img src="public/img/logo/logo.png" alt="Logo La dicature de Panem">
+          <img class=".logo1" src="public/img/logo/logo.png" alt="logo du site">
         </a>
-        <button>
-          <img src="public/img/Icons/hamb.png" alt="icone de menu">
+      </div>
+        <!-- Fin du formulaire de recherche -->
+        
+        <button class="header__menu-btn menu-btn" aria-label="menu" aria-expanded="false" aria-controls="mainNav"
+                @pointerdown="menuIsOpen = !menuIsOpen" 
+                :class="menuIsOpen && 'menu-btn--open'">
+          <span class="menu-btn__bar"></span>
         </button>
 
-        <!-- Menu principal -->
-        <nav>
-          <ul>
-            <li><a href="index.html"><img src="public/img/Icons/accueil.png" alt="Icon accueil">Accueil</a></li>
-            <li><a href="Un-puissant-gouvernement.html"><img src="public/img/Icons/Parleur.png" alt="Icon Element">Un puissant gouvernement</a></li>
-            <li><a href="séjour-capitole.html"><img src="public/img/Icons/film.png" alt="Icon film">Le séjour au capitole</a></li>
-            <li><a href="Les-jeux-de-la-survie.html"><img src="public/img/Icons/livre.png" alt="Icon livre">Les jeux de la survie</a></li>
-            <li><a href="autres-projets.html"><img src="public/img/Icons/autresprojets.png" alt="Icon autres projets">Autres projets</a></li>
-            <li><a href="contact.html"><img src="public/img/Icons/icônecontact.png" alt="Icon contact">Contact</a></li>
+
+      <!-- Menu principal -->
+      <nav class="header__menu menu" id="mainNav" :class="menuIsOpen && 'menu--open'">
+          <ul class="menu__list list-unstyled">
+            <li class="menu__item"><a class="menu__link" href="accueil.html">Accueil</a></li>
+            <li class="menu__item"><a class="menu__link" href="séjour-capitole.html">Le séjour au Capitole</a></li>
+            <li class="menu__item"><a class="menu__link" href="Un-puissant-gouvernement.html">Un puissant gouvernement</a></li>
+            <li class="menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+            <li class="menu__item menu__item--btn"><a class="menu__link" href="autres-projets.html">Autres projets</a></li>
+            <li class="menu__item menu__item--btn"><a class="menu__link" href="Les-jeux-de-la-survie.html">Les jeux de la survie</a></li>
           </ul>
         </nav>
-      </header>
-
+    </header>
     <!-- Contenu principal de la page -->
   <main>
     <img src="public/img/Images/Capitoleeau.svg" alt="capitole vue de l'eau">
@@ -63,7 +74,7 @@
                 première fois. Ce lieu est le parfait
                 opposé du District 12.
             </p>
-                <img src="public/img/Images/capitole221.svg" alt="capitole vue aérienne">
+                <img src="public/img/Images/capitole22 1.svg" alt="capitole vue aérienne">
             <p>
                 Le Capitole est directement montré
              comme une ville regorgeante d’avancées
@@ -161,18 +172,23 @@
         </p>
         <h3>Bande annonce</h3>
         <img src="public/img/Images/trailer1.svg" alt="bande annonce">
-        <img src="public/img/Icons/Playicon.svg" alt="icon play">
     </section>
     <!-- Section Films associés (zone beige) -->
     <section>
         <h3>Films associés</h3>
-        <img src="public/img/Images/hg2.svg" alt="affiche du film hunger game l'embrasement">
-        <img src="public/img/Images/hg1.svg" alt="affiche du film hunger game la révolte vol1">
-        <img src="public/img/Images/Hg-révolte.svg" alt="affiche du film hunger game la révolte vol2">
-        <img src="public/img/Images/diver.svg" alt="affiche du film divergente">
-        <img src="public/img/Images/laby.svg" alt="affiche du film labyrinthe">
-        <img src="public/img/Images/5wave.svg" alt="affiche du film hunger game la 5ème vague">
-
+        <div class="carrousel-grid carrousel">
+            <div class="carrousel images6">
+                <img id="img1" class="image6" src="public/img/Images/hg2.svg" alt="Image du livre RKD-EK9">
+                <img id="img2" class="image6" src="public/img/Images/hg1.svg" alt="Image du livre Hello Baby">
+                <img id="img3" class="image6" src="public/img/Images/Hg-révolte.svg"
+                    alt="Image du livre Uroboe Urooboos">
+                <img id="img4" class="image6" src="public/img/Images/diver.svg"
+                    alt="Image du livre School Judgment">
+                <img id="img5" class="image6" src="public/img/Images/laby.svg"
+                    alt="Image du livre All you need is kill">
+                <img id="img6" class="image6" src="public/img/Images/5wave.svg" alt="Image du livre Blue Dragon">
+            </div>
+            <script>carrousel()</script>
     </section>
     <!-- Section Films associés (zone beige) -->
     <div>

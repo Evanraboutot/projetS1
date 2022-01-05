@@ -117,7 +117,7 @@ uniquement accessible aux lecteurs vocaux (sr = screen reader) */
 position: relative;
 width: 165px;
 height: 252px;
-left: 105px;
+left: 85px;
 top: 40px;
 z-index: 6;
 background-color: #ffffff
@@ -146,20 +146,37 @@ top: 760px;
 .legend{
   position: relative;
   top: -20px;
+  left: 0px;
+  font-family: verdana;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 106.9%;
+  /* or 16px */
 
-font-family: verdana;
-font-style: normal;
-font-weight: normal;
-font-size: 15px;
-line-height: 106.9%;
-/* or 16px */
-
-text-align: center;
-color: #333333;
+  text-align: center;
+  color: #333333;
 }
 
-.img-etendu{
+.marge{
+  margin-left: 20px;
+}
+.ligne{
+  position: relative;
+  top:10px;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.art{
+  position: relative;
+  left: 193px;
+  top: -50px;
+  font-family: Patua One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: #333333;
+  z-index: 7;
 }

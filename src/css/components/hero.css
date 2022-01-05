@@ -8,7 +8,7 @@ On utilise flex ici pour aligner le contenu textuel en bas de l'élément et fai
     flex-direction: column;
     justify-content: flex-end;
     padding-bottom: var(--space5x);
-    z-index: 8;
+    z-index: 10;
   }
   
   /* L'élément qui contient l'image est positionné en absolu pour permettre au titre de venir se superposer à l'image. Toutes les propriétés de position à 0 permettent d'étendre cet élément à tout l'élément parent, positionné en relatif. */
